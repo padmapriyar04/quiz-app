@@ -9,7 +9,7 @@ async function getQuestions(req, res){
         const q = await Question.find();
         res.json(q)
     } catch (error) {
-        res.json({ error })
+        throw new Error(error)
     }
 }
 
@@ -20,7 +20,7 @@ async function insertQuestions(req, res){
             res.json({ msg: "Data Saved Successfully...!"})
         })
     } catch (error) {
-        res.json({ error })
+        throw new Error(error)
     }
 }
 
@@ -30,7 +30,7 @@ async function dropQuestions(req, res){
             await Question.deleteMany();
             res.json({ msg: "Questions Deleted Successfully...!"});
     } catch (error) {
-            res.json({ error })
+            throw new Error(error)
     }
 }
 
@@ -40,7 +40,7 @@ async function getResult(req, res){
         const r = await result.find();
         res.json(r)
     } catch (error) {
-        res.json({ error })
+        throw new Error(error)
     }
 }
 
@@ -55,7 +55,7 @@ async function storeResult(req, res){
             })
 
     } catch (error) {
-            res.json({error})
+            throw new Error(error)
     }
 }
 
@@ -65,7 +65,7 @@ async function dropResult(req, res){
         await result.deleteMany();
         res.json({ msg : "Result Deleted Successfully...!"})
     } catch (error) {
-        res.json({ error })
+        throw new Error(error)
     }
 }
 

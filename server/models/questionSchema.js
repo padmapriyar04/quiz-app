@@ -1,11 +1,11 @@
-mongoose = require("mongoose");
-const { Schema } = mongoose;
+const mongoose = require("mongoose");
+
 
 /** question model */
-const questionModel = new Schema({
+const questionModel = mongoose.Schema({
     questions: { type : Array, default: []}, // create question with [] default value
     answers : { type : Array, default: []},
     createdAt: { type: Date, default: Date.now },
 });
 
-module.export = mongoose.model('Question', questionModel);
+module.exports = mongoose.model('Question', questionModel);
